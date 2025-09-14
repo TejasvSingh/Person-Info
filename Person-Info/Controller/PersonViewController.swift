@@ -7,7 +7,9 @@
 
 import UIKit
 class PersonViewController: UIViewController {
-    let networkManager = NetworkManager.shared
+    
+    private let viewModel = PersonViewModel()
+    
     let nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -33,27 +35,18 @@ class PersonViewController: UIViewController {
         super.viewDidLoad()
         
         
-        getDataFromServer {
+        viewModel.getDataFromServer {
             [weak self] in
             DispatchQueue.main.async {
-                self?.nameLabel.text = self?.fetchedName
-                self?.genderLabel.text = self?.fetchedGender
+                self?.nameLabel.text = self?.viewModel.fetchedName
+                self?.genderLabel.text = self?.viewModel.fetchedGender
             }
         }
         view.addSubview(nameLabel)
         view.addSubview(genderLabel)
-                
+        
     }
-    func getDataFromServer(closure: @escaping (() -> Void)) {
-            networkManager.getData(from: Server.endPoint){ [weak self] result in
-            guard let self = self else { return }
-                let people: person = self.networkManager.parse(data: result) ??  person(name: "", gender: "")
-                self.fetchedName = people.name
-                self.fetchedGender = people.gender
-                closure()
-            }
-            }
-        }
+}
     
     
 
