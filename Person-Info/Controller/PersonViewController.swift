@@ -28,11 +28,13 @@ class PersonViewController: UIViewController {
         label.backgroundColor = .green
         return label
     }()
+    
     var OutputText: String = ""
     var fetchedName: String = ""
     var fetchedGender: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        sampleTest()
         
         
         viewModel.getDataFromServer {
@@ -45,6 +47,9 @@ class PersonViewController: UIViewController {
         view.addSubview(nameLabel)
         view.addSubview(genderLabel)
         
+    }
+    func sampleTest() -> Bool {
+        return true
     }
 }
     
