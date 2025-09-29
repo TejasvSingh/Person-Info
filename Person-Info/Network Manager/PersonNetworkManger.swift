@@ -26,7 +26,7 @@ class NetworkManager {
        }.resume()
         
     }
-    
+    //parse the data
     func parse(data: Data?)-> person?{
         guard let data = data else {
             return nil
