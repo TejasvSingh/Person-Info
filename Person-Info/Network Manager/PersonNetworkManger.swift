@@ -5,7 +5,10 @@
 //  Created by Tejasv Singh on 9/12/25.
 //
 import Foundation
-class NetworkManager {
+protocol personProtocol: AnyObject{
+    func parse(data: Data?)-> person?
+}
+class NetworkManager : personProtocol{
     static let shared = NetworkManager()
     
     private init() {}
