@@ -34,7 +34,7 @@ class PersonViewController: UIViewController {
     var fetchedGender: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        sampleTest()
+        sampleTest2()
         
         
         viewModel.getDataFromServer {
@@ -48,8 +48,9 @@ class PersonViewController: UIViewController {
         view.addSubview(genderLabel)
         
     }
-    func sampleTest() -> Bool {
-        return true
+    func sampleTest2() -> Bool {
+        let temp = false
+        return temp
     }
 }
     
