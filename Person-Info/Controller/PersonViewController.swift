@@ -36,7 +36,9 @@ class PersonViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         TejasvSum()
+
         
         
         viewModel.getDataFromServer {
@@ -50,11 +52,13 @@ class PersonViewController: UIViewController {
         view.addSubview(genderLabel)
         
     }
+
     func TejasvSum() {
         for i in arr {
             sum = sum + i
         }
         print(sum)
+
     }
 }
     
