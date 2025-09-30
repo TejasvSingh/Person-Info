@@ -9,7 +9,8 @@ import UIKit
 class PersonViewController: UIViewController {
     
     private let viewModel = PersonViewModel()
-    
+    let arr: [Int] = [1,2,3,4,5]
+    var sum: Int = 0
     let nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -32,9 +33,12 @@ class PersonViewController: UIViewController {
     var OutputText: String = ""
     var fetchedName: String = ""
     var fetchedGender: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        sampleTest2()
+
+        TejasvSum()
+
         
         
         viewModel.getDataFromServer {
@@ -48,9 +52,13 @@ class PersonViewController: UIViewController {
         view.addSubview(genderLabel)
         
     }
-    func sampleTest2() -> Bool {
-        let temp = false
-        return temp
+
+    func TejasvSum() {
+        for i in arr {
+            sum = sum + i
+        }
+        print(sum)
+
     }
 }
     
